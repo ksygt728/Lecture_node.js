@@ -1,0 +1,40 @@
+
+
+
+pipeline{
+  agent any 
+
+  parameters {
+    gitParameter(
+      branch: '',
+      branchFilter: ".*",
+      defaultValue: "",
+      description: '',
+      listSize: '10',
+      name: 'Version',
+      quickFilterEnabled: false,
+      selectedValue: 'NONE',
+      sortMode: 'ASCENDING_SMART',
+      tagFilter: "*",
+      type: 'PT_BRANCH_TAG',
+      useRepository: 'https://github.com/ksygt728/Lecture_node.js.git')
+   }
+   stages{
+       stage('Build'){
+        //1. checkout code
+        git branch: '${gitParameter}', changelog: false, credentialsId: 'SeungYeon', poll: false, url: 'https://github.com/ksygt728/Lecture_node.js.git/'
+        
+        //2. build 
+        withMaven(jdk: 'JAVA_HOME', maven: 'maven') {
+            bat 'mvn clean package'
+        }
+        echo 'build success!'
+        
+    }
+    stage('Upload'){
+        bat 'cd %workspace%\\target'
+        bat 'copy .\\*.war C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\BUILD_LIST\\%BUILD_ID%_%DATE%.war'
+    }
+    
+  } 
+}

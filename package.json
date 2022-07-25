@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node D:\\Lecture_node.js\\Lecture_node.js\\Lec_1\\server.js"
+    
   },
   "repository": {
     "type": "git",
