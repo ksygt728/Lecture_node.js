@@ -1,0 +1,23 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "node.js 공부하기",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node /Lec_1/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ksygt728/Lecture_node.js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ksygt728/Lecture_node.js/issues"
+  },
+  "homepage": "https://github.com/ksygt728/Lecture_node.js#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
